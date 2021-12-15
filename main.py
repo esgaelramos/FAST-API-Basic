@@ -15,3 +15,5 @@ from fastapi import FastAPI
 from fastapi import Body
 from fastapi import Query
 from fastapi import Path
+
+app = FastAPI()
