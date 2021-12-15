@@ -9,3 +9,9 @@ from pydantic import Field
 from pydantic import EmailStr
 from pydantic import PositiveFloat
 from pydantic import HttpUrl
+
+# FastAPI
+from fastapi import FastAPI
+from fastapi import Body
+from fastapi import Query
+from fastapi import Path
