@@ -17,3 +17,19 @@ from fastapi import Query
 from fastapi import Path
 
 app = FastAPI()
+
+#Models
+
+class HairColor(Enum):
+    white = "white"
+    brown = "brown"
+    black = "black"
+    blonde = "blonde"
+    red = "red"
+
+class EmailStr(EmailStr):
+    pass
+class PositiveFloat(PositiveFloat):
+    pass
+class HttpUrl(HttpUrl):
+    pass
