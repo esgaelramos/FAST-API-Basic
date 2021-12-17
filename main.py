@@ -34,3 +34,27 @@ class PositiveFloat(PositiveFloat):
 class HttpUrl(HttpUrl):
     pass
 
+class Person(BaseModel):
+    first_name: str = Field(
+        ..., 
+        min_length=1,
+        max_length=20,
+        example="Gael"
+        )
+    last_name: str = Field(
+        ..., 
+        min_length=1,
+        max_length=20,
+        example="Ramos"
+        )
+    age: int = Field(
+        ...,
+        gt=0,
+        le=100,
+        example=18
+    )
+    hair_color: Optional[HairColor] = Field(default=None, example="black")
+    is_married: Optional[bool] = Field(default=None, example=False)
+    website: Optional[HttpUrl] = Field(default=None, example="https://www.esgaelramos.com")
+    email: Optional[EmailStr] = Field(default=None, example="esgaelramos@gmail.com")
+    heigth: Optional[PositiveFloat] = Field(default=None, example=1.68)
