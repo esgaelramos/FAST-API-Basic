@@ -58,3 +58,46 @@ class Person(BaseModel):
     website: Optional[HttpUrl] = Field(default=None, example="https://www.esgaelramos.com")
     email: Optional[EmailStr] = Field(default=None, example="esgaelramos@gmail.com")
     heigth: Optional[PositiveFloat] = Field(default=None, example=1.68)
+
+    # class Config:
+    #     schema_extra = {
+    #         "example": {
+    #             "first_name": "Facundo",
+    #             "last_name": "García",
+    #             "age": 22,
+    #             "hair_color": "blonde",
+    #             "is_married": True,
+    #             "web_site": "https://platzi.com/facundo",
+    #             "email": "facundo@platzi.com",
+    #             "heigth": "1.80"
+    #         }
+    #     }
+
+class Location(BaseModel):
+    city: str = Field(
+        ...,
+        min_length=3,
+        max_length=30,
+        example="Cuautitlán"
+    )
+    state: str = Field(
+        ...,
+        min_length=3,
+        max_length=30,
+        example="EdoMex"
+    )
+    country: str = Field(
+        ...,
+        min_length=3,
+        max_length=30,
+        example="México"
+    )
+
+    # class Config:
+    #     schema_extra = {
+    #         "example": {
+    #             "city": "Buenos Aires",
+    #             "state": "CABA",           
+    #             "country": "Argentina"
+    #         }
+    #     }
