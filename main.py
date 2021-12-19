@@ -101,3 +101,8 @@ class Location(BaseModel):
     #             "country": "Argentina"
     #         }
     #     }
+
+
+@app.get("/")
+def home():
+    return{"Hello": "World"}
