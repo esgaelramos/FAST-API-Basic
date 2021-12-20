@@ -112,3 +112,23 @@ def home():
 @app.post("/person/new")
 def create_person(person: Person = Body(...)):
     return person
+
+# Validations: Query Parameters
+@app.get("/person/detail")
+def show_person(
+    name: Optional[str] = Query(
+        None, 
+        min_length=1, 
+        max_length=20,
+        title="Person Name",
+        description="This is the person name. It's between 1 and 50 characters.",
+        example="Iran"
+        ),
+    age: str = Query(
+        ...,
+        title="Person Age",
+        description="This is the person age. It's requeried.",     
+        example=15
+        )
+):
+    return {name: age}
