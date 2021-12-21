@@ -132,3 +132,16 @@ def show_person(
         )
 ):
     return {name: age}
+
+# Validations: Path Parameters
+@app.get("/person/detail/{person_id}")
+def show_person(
+    person_id: int = Path(
+        ..., 
+        gt=0,
+        title="Person ID",
+        description="It's requeried(path), greatest than zero.",
+        example=17032007
+        )
+):
+    return {person_id: "It exists!"}
