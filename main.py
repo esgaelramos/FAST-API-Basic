@@ -145,3 +145,21 @@ def show_person(
         )
 ):
     return {person_id: "It exists!"}
+
+# Validations: Request Body
+# Test to commit?
+@app.put("/person/{person_id}")
+def update_person(
+    person_id: int = Path(
+        ...,
+        title="Person ID",
+        description="This the person ID, greatest than zero.",
+        gt=0,
+        example="17032007"
+    ),
+    person: Person = Body(...),
+    location: Location = Body(...)
+):
+    results = person.dict()
+    results.update(location.dict())
+    return results
